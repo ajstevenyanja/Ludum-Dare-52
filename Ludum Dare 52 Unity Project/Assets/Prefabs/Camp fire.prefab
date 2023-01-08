@@ -175,6 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3232275118346284237}
+  - component: {fileID: 1658576562578076212}
   m_Layer: 0
   m_Name: Camp fire
   m_TagString: Untagged
@@ -200,6 +201,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1658576562578076212
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218882129597895059}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.2232542, y: 2.1672215, z: 2.1234875}
+  m_Center: {x: 0, y: 1.0945089, z: -0.0924387}
 --- !u!1 &1702716883070830999
 GameObject:
   m_ObjectHideFlags: 0
