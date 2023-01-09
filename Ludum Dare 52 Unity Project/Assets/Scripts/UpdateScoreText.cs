@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using TMPro;
 
 public class UpdateScoreText : MonoBehaviour
 {
     [SerializeField] TMP_Text scoreText;
+    [SerializeField] UnityEvent OnReachingMaxScore;
 
     int tomatoePerPlant = 3;
     int score = 0;
@@ -21,5 +23,10 @@ public class UpdateScoreText : MonoBehaviour
     {
         score += tomatoePerPlant;
         scoreText.text = $"{score} / {maxScore}";
+
+        if (score == maxScore)
+        {
+            OnReachingMaxScore.Invoke();
+        }
     }
 }

@@ -6,6 +6,7 @@ public class FirstPersonLook : MonoBehaviour
     Transform character;
     public float sensitivity = 2;
     public float smoothing = 1.5f;
+    bool canLook = true;
 
     Vector2 velocity;
     Vector2 frameVelocity;
@@ -25,6 +26,11 @@ public class FirstPersonLook : MonoBehaviour
 
     void Update()
     {
+        if (!canLook)
+        {
+            return;
+        }
+
         // Get smooth velocity.
         Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
         Vector2 rawFrameVelocity = Vector2.Scale(mouseDelta, Vector2.one * sensitivity);
@@ -35,5 +41,10 @@ public class FirstPersonLook : MonoBehaviour
         // Rotate camera up-down and controller left-right from velocity.
         transform.localRotation = Quaternion.AngleAxis(-velocity.y, Vector3.right);
         character.localRotation = Quaternion.AngleAxis(velocity.x, Vector3.up);
+    }
+
+    public void ToggleMouseLook(bool canInput)
+    {
+        canLook = canInput;
     }
 }

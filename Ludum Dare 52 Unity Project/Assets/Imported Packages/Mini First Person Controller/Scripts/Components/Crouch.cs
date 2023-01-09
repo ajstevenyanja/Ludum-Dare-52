@@ -25,6 +25,7 @@ public class Crouch : MonoBehaviour
     public bool IsCrouched { get; private set; }
     public event System.Action CrouchStart, CrouchEnd;
 
+    bool canInput = true;
 
     void Reset()
     {
@@ -36,6 +37,11 @@ public class Crouch : MonoBehaviour
 
     void LateUpdate()
     {
+        if (!canInput)
+        {
+            return;
+        }
+
         if (Input.GetKey(key))
         {
             // Enforce a low head.
@@ -109,6 +115,10 @@ public class Crouch : MonoBehaviour
         }
     }
 
+    public void ToggleCanCrouch(bool can)
+    {
+        canInput = can;
+    }
 
     #region Speed override.
     void SetSpeedOverrideActive(bool state)
